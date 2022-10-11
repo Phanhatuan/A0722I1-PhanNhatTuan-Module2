@@ -16,6 +16,7 @@ public class is_prime_smaller_than_100 {
     }
 
     public static void main(String[] args) {
+
         is_prime_smaller_than_100 a = new is_prime_smaller_than_100();
         for (int i = 2; i < 100; i++) {
             if(a.checkPrime(i)==true){
