@@ -8,11 +8,15 @@ public class Array2d_template {
     int[][] arr;
     public void input(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Nhap so dong: ");
-        soDong=scanner.nextInt();
-        System.out.print("Nhap so cot: ");
-        soCot=scanner.nextInt();
-        arr = new int[soDong][soCot];
+        do {
+            System.out.print("Nhap so dong: ");
+            soDong=scanner.nextInt();
+            System.out.print("Nhap so cot: ");
+            soCot=scanner.nextInt();
+        }while(soDong < 0 && soCot < 0);
+        if(soCot > 0 & soDong > 0){
+            arr = new int[soDong][soCot];
+        }
     }
     public void creat_2dArray(){
         Scanner scanner = new Scanner(System.in);

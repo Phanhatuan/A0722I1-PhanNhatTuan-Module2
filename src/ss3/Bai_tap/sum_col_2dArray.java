@@ -14,6 +14,7 @@ public class sum_col_2dArray extends Array2d_template{
         }
         return sum1;
     }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         sum_col_2dArray a = new sum_col_2dArray();
