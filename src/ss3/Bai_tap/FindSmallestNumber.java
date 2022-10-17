@@ -1,7 +1,7 @@
 package ss3.Bai_tap;
 import java.util.Scanner;
 
-public class find_smallest_number {
+public class FindSmallestNumber {
     public static void create_array(int arr[]){
         Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < arr.length; i++) {

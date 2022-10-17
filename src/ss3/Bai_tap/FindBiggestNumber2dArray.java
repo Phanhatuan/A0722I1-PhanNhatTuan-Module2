@@ -1,7 +1,6 @@
 package ss3.Bai_tap;
-import java.util.Scanner;
 
-public class find_biggest_number_2dArray extends Array2d_template{
+public class FindBiggestNumber2dArray extends Array2dTemplate {
     public int find_max(){
         int max = arr[0][0];
         for (int i = 0; i < arr.length; i++) {
@@ -14,7 +13,7 @@ public class find_biggest_number_2dArray extends Array2d_template{
         return max;
     }
     public static void main(String[] args) {
-        find_biggest_number_2dArray a = new find_biggest_number_2dArray();
+        FindBiggestNumber2dArray a = new FindBiggestNumber2dArray();
         a.input();
         a.creat_2dArray();
         a.display();

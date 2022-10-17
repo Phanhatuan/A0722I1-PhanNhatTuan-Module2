@@ -2,7 +2,7 @@ package ss3.Bai_tap;
 
 import java.util.Scanner;
 
-public class insert_element {
+public class InsertElement {
 
     public static void display (int arr[]){
         System.out.print("Mang la ");

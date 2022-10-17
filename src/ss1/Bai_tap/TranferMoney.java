@@ -1,7 +1,7 @@
 package ss1.Bai_tap;
 import java.util.Scanner;
 
-public class tranfer_money {
+public class TranferMoney {
     public static void main(String[] args) {
         System.out.println("Enter money want to tranfer: ");
         Scanner sc = new Scanner(System.in);

@@ -1,7 +1,7 @@
 package ss1.Bai_tap;
 import java.util.Scanner;
 
-public class read_number {
+public class ReadNumber {
     public static void main(String[] args) {
         System.out.println("Enter a number less than 4 digits");
         Scanner sc = new Scanner(System.in);

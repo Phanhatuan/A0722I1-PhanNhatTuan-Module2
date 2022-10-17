@@ -2,7 +2,7 @@ package ss2.Bai_tap;
 
 import java.util.Scanner;
 
-public class display_shape {
+public class DisplayShape {
     public static void main(String[] args) {
         int choice = -1;
         Scanner input = new Scanner(System.in);
@@ -31,8 +31,8 @@ public class display_shape {
                 case 2:
                     System.out.println("Print the square triangle");
                     System.out.println("Input length: ");
-                    int TLength = input.nextInt();
-                    for (int i = 0; i < TLength; i++) {
+                    int tLength = input.nextInt();
+                    for (int i = 0; i < tLength; i++) {
                         for (int j = 0; j <= i; j++) {
                             System.out.print("*");
                         }
@@ -40,16 +40,16 @@ public class display_shape {
                     }
                     System.out.print("\n");
 
-                    for (int k = 0; k < TLength; k++) {
-                        for (int l = TLength; l > k; l--) {
+                    for (int k = 0; k < tLength; k++) {
+                        for (int l = tLength; l > k; l--) {
                             System.out.print("*");
                         }
                         System.out.print("\n");
                     }
 
-                    for (int i = 0; i < TLength; i++) {
-                        for (int j = 0; j <= TLength; j++) {
-                            if (j < (TLength - i)) {
+                    for (int i = 0; i < tLength; i++) {
+                        for (int j = 0; j <= tLength; j++) {
+                            if (j < (tLength - i)) {
                                 System.out.print(" ");
                             } else {
                                 System.out.print("*");
@@ -60,8 +60,8 @@ public class display_shape {
                     System.out.print("\n");
 
 
-                    for (int i = 0; i < TLength; i++) {
-                        for (int j = 0; j < TLength; j++) {
+                    for (int i = 0; i < tLength; i++) {
+                        for (int j = 0; j < tLength; j++) {
                             if (j <= (i - 1)) {
                                 System.out.print(" ");
                             } else {

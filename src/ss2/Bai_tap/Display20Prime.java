@@ -1,6 +1,6 @@
 package ss2.Bai_tap;
 
-public class is_prime_smaller_than_100 {
+public class Display20Prime {
     boolean checkPrime(int n){
         boolean flag = true;
         if(n<2)
@@ -14,13 +14,17 @@ public class is_prime_smaller_than_100 {
         }
         return flag;
     }
-
     public static void main(String[] args) {
-
-        is_prime_smaller_than_100 a = new is_prime_smaller_than_100();
-        for (int i = 2; i < 100; i++) {
+        Display20Prime a = new Display20Prime();
+        int numbers = 20;
+        int count = 0;
+        for (int i = 0; i < 1000; i++) {
             if(a.checkPrime(i)==true){
                 System.out.print(i + " ");
+                count ++;
+            }
+            if(count == numbers){
+                break;
             }
         }
     }

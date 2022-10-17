@@ -2,7 +2,7 @@ package ss3.Bai_tap;
 
 import java.util.Scanner;
 
-public class delete_element {
+public class DeleteElement {
     public static int find(int arr[],int number){
         for (int i = 0; i < arr.length; i++) {
             if(arr[i]==number){
@@ -23,9 +23,9 @@ public class delete_element {
         int[] arr = {4, 12, 7, 8, 1, 6, 9};
         System.out.println("Nhap so can xoa: ");
         number = scanner.nextInt();
-        int index_del = find(arr,number);
-        if(index_del != -1){
-            for (int k = index_del; k < arr.length-1; k++) {
+        int indexDel = find(arr,number);
+        if(indexDel != -1){
+            for (int k = indexDel; k < arr.length-1; k++) {
                 arr[k] = arr[k+1];
                 if(k==5){
                     arr[6]=0;

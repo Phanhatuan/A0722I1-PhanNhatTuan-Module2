@@ -2,7 +2,7 @@ package ss3.Bai_tap;
 
 import java.util.Scanner;
 
-public class Array2d_template {
+public class Array2dTemplate {
     int soDong;
     int soCot;
     int[][] arr;

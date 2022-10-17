@@ -1,15 +1,15 @@
 package ss3.Bai_tap;
 
-public class sum_diagonal_line_2dArray extends Array2d_template{
+public class SumDiagonalLine2dArray extends Array2dTemplate {
     public int diagonalSum(){
-        int sum2 = 0;
+        int sum = 0;
         for (int i = 0; i < arr.length; i++) {
-            sum2+=arr[i][i];
+            sum+=arr[i][i];
         }
-        return sum2;
+        return sum;
     }
     public static void main(String[] args) {
-        sum_diagonal_line_2dArray a = new sum_diagonal_line_2dArray();
+        SumDiagonalLine2dArray a = new SumDiagonalLine2dArray();
         do {
             a.input();
         }while(a.soDong != a.soCot);

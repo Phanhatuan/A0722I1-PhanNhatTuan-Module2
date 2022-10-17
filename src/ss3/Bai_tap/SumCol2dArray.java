@@ -2,22 +2,22 @@ package ss3.Bai_tap;
 
 import java.util.Scanner;
 
-public class sum_col_2dArray extends Array2d_template{
+public class SumCol2dArray extends Array2dTemplate {
     public int sum(int col){
         if(col>arr[0].length-1){
             System.out.println("Nhap col khong hop le");
             return 0;
         }
-        int sum1 = 0;
+        int sum = 0;
         for (int i = 0; i < arr.length; i++) {
-            sum1 += arr[i][col];
+            sum += arr[i][col];
         }
-        return sum1;
+        return sum;
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        sum_col_2dArray a = new sum_col_2dArray();
+        SumCol2dArray a = new SumCol2dArray();
          a.input();
          a.creat_2dArray();
          a.display();

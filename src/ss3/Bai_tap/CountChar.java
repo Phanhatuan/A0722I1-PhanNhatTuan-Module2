@@ -1,6 +1,6 @@
 package ss3.Bai_tap;
 import java.util.Scanner;
-public class count_char {
+public class CountChar {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập chuỗi:");

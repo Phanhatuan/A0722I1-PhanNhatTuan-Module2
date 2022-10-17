@@ -1,7 +1,7 @@
 package ss3.Bai_tap;
 import java.util.Scanner;
 
-public class merge_array {
+public class MergeArray {
     public static void create_array(int arr[]){
         Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < arr.length; i++) {
@@ -36,17 +36,17 @@ public class merge_array {
         System.out.println();
 
         int[] arr1;
-        int aSize1;
+        int size1;
         System.out.print("Nhap so phan tu mang thu hai ");
-        aSize1 = scanner.nextInt();
-        arr1 = new int[aSize1];
+        size1 = scanner.nextInt();
+        arr1 = new int[size1];
         create_array(arr1);
         display(arr1);
         System.out.println();
 
         int[] arr2;
-        int aSize2 = aSize + aSize1;
-        arr2 = new int[aSize2];
+        int size2 = aSize + size1;
+        arr2 = new int[size2];
         merge(arr,arr1,arr2);
         display(arr2);
     }
