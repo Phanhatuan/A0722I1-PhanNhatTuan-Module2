@@ -1,12 +1,15 @@
 package ss3.Thuc_hanh;
 
 public class test {
+    public static int X = 2;
+
     public static void main(String[] args) {
-        int[] a = {1,9,3,2};
-        for (int i = 0; i < a.length-1; i++) {
-            System.out.println(a[i]);
-        }
+        test o1 = new test();
+        test o2 = new test();
+        o2.X = 5;
+        System.out.printf("x=%d, y=%d, z=%d", o1.X, o2.X, test.X);
     }
+
 }
 
 
