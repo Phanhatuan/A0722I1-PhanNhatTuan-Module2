@@ -12,5 +12,8 @@ public class TestColorable {
                 ((Square)shape).howToColor();
             }
         }
+
     }
+
+
 }
