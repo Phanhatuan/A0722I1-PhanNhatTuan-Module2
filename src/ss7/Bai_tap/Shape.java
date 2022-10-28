@@ -27,7 +27,9 @@ public class Shape {
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
-
+    private void abc(){
+        System.out.println("abc");
+    }
     @Override
     public String toString() {
         return "A Shape with color of "

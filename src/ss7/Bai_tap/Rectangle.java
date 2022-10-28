@@ -56,4 +56,6 @@ public class Rectangle extends Shape implements Resizeable {
     public void resize(double percent) {
         System.out.print(getArea()*percent + "\n");
     }
+
+
 }
