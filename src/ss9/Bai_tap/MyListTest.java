@@ -10,7 +10,9 @@ public class MyListTest {
         a.addFirst(3);
         a.printList();
         System.out.println();
-        a.remove(0);
+        a.remove(new Integer(1));
         a.printList();
+        System.out.println();
+        System.out.println(a.indexOf(1));
     }
 }

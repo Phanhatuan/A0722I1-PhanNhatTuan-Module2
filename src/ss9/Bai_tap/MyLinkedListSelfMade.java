@@ -6,6 +6,7 @@ public class MyLinkedListSelfMade<E> {
 
     public MyLinkedListSelfMade(Object data) {
         head = new Node(data);
+        numNodes++;
     }
 
     public void add(int index, Object data) {
@@ -46,11 +47,63 @@ public class MyLinkedListSelfMade<E> {
             }
             current.next = current.next.next;
         }
+        numNodes--;
     }
 
     public void remove(Object element){
         Node temp = head;
+        for (int i = 0; i < numNodes; i++) {
+            temp=temp.next;
+            if( temp.getData().equals(element)){
+                remove(i+1);
+            }
+        }
     }
+
+    public boolean contains(E element) {
+        Node temp = head;
+        while (temp != null) {
+            if (temp.getData() == element) {
+                return true;
+            }
+            temp = temp.next;
+        }
+        return false;
+    }
+    public int indexOf(E element) {
+        Node temp = head;
+        for (int i = 0; i < numNodes; i++) {
+            if (temp.data.equals(element)) {
+                return i;
+            }
+            temp = temp.next;
+        }
+        return -1;
+    }
+
+    public E getFirst() {
+        Node temp = head;
+        return (E) temp.getData();
+    }
+    public E getLast() {
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        return (E) temp.getData();
+    }
+    public void clear() {
+        Node temp = head;
+        head = null;
+        while (temp.next != null) {
+            temp.next = null;
+        }
+        numNodes = 0;
+    }
+    public int size() {
+        return numNodes;
+    }
+
     public Node get(int index) {
         Node temp = head;
         for (int i = 0; i < index; i++) {
@@ -58,12 +111,7 @@ public class MyLinkedListSelfMade<E> {
         }
         return temp;
     }
-    public void printList(Node temp) {
-        while (temp != null) {
-            System.out.print(temp.data + "->");
-            temp = temp.next;
-        }
-    }
+
     public void printList() {
         Node temp = head;
         while (temp != null) {
