@@ -1,5 +1,7 @@
 package caseStudy.models;
 
+import java.time.LocalDate;
+
 public class Employee extends Person{
     private int employeeId;
     private String levelEducation;
@@ -48,5 +50,21 @@ public class Employee extends Person{
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name = " + getName() +
+                " birthDay = " +getBirthDay() +
+                " gender = " + getGender() +
+                " id = " + getId() +
+                " tel = " + getTel() +
+                " email = " + getEmail() +
+                " employeeId =" + employeeId +
+                ", levelEducation ='" + levelEducation + '\'' +
+                ", position ='" + position + '\'' +
+                ", salary =" + salary +
+                '}';
     }
 }

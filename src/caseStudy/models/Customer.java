@@ -1,5 +1,7 @@
 package caseStudy.models;
 
+import java.time.LocalDate;
+
 public class Customer extends Person{
     private int customerId;
     private String typeCustomer;
