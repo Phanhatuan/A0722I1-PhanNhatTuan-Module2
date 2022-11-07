@@ -41,7 +41,6 @@ public class FuramaController {
                             int employeeId = sc.nextInt();
                             employeeService.edit(employeeId);
                             employeeService.display();
-
                             break;
                         default:
                             System.exit(0);
