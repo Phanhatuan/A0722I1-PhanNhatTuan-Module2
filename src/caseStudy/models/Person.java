@@ -30,11 +30,11 @@ public abstract class Person {
         this.name = name;
     }
 
-    public String  getBirthDay() {
+    public String getBirthDay() {
         return birthDay;
     }
 
-    public void setBirthDay(String  birthDay) {
+    public void setBirthDay(String birthDay) {
         this.birthDay = birthDay;
     }
 

@@ -44,7 +44,7 @@ public class EmployeeServiceImpl implements EmployeeService{
         System.out.println("Input Email: ");
         String email = sc.nextLine();
         System.out.println("Input Employee id: ");
-        int employeeId = sc.nextInt();
+        int employeeId = Integer.parseInt(sc.nextLine());
         System.out.println("Input Level: "); // lỗi dính liền
         String level = sc.nextLine();
         System.out.println("Input Position: ");
@@ -77,10 +77,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     public static void main(String[] args) {
         EmployeeServiceImpl n = new EmployeeServiceImpl();
-        //n.add();
+        n.add();
         n.display();
-        n.edit(1);
-        n.display();
+        //n.edit(1);
+        //n.display();
 
     }
 }

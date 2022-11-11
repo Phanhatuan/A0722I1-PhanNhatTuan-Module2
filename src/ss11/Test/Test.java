@@ -1,17 +1,19 @@
 package ss11.Test;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 import java.util.Stack;
 
 public class Test {
     public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<Integer>();
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        stack.push(4);
+        Scanner sc = new Scanner(System.in);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/M/yyyy");
+        String date = sc.nextLine();     //yyyy-MM-dd
 
-        while (!stack.isEmpty()) {
-            System.out.printf(" %d", stack.pop());
-        }
+        //convert String to LocalDate
+        LocalDate localDate = LocalDate.parse(date, formatter);
+        String localDate1 = localDate.format(formatter);
+        System.out.println(localDate1);
     }
 }
