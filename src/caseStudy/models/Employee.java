@@ -3,18 +3,19 @@ package caseStudy.models;
 import java.time.LocalDate;
 
 public class Employee extends Person{
+    private static int idOrder = 0;
     private int employeeId;
     private String levelEducation;
     private String position;
     private double salary;
 
     public Employee() {
-
+        this.employeeId = idOrder++;
     }
 
-    public Employee(String name, String birthDay, String gender, String id, String tel, String email, int employeeId, String levelEducation, String position, double salary) {
+    public Employee(String name, String birthDay, String gender, String id, String tel, String email, String levelEducation, String position, double salary) {
         super(name, birthDay, gender, id, tel, email);
-        this.employeeId = employeeId;
+        this.employeeId = idOrder++;
         this.levelEducation = levelEducation;
         this.position = position;
         this.salary = salary;
@@ -55,13 +56,13 @@ public class Employee extends Person{
     @Override
     public String toString() {
         return "Employee{" +
-                "name = " + getName() +
-                " birthDay = " +getBirthDay() +
-                " gender = " + getGender() +
-                " id = " + getId() +
-                " tel = " + getTel() +
-                " email = " + getEmail() +
-                " employeeId =" + employeeId +
+                "name = " + getName() + '\'' +
+                " birthDay = " +getBirthDay() + '\'' +
+                " gender = " + getGender() + '\'' +
+                " id = " + getId() + '\'' +
+                " tel = " + getTel() + '\'' +
+                " email = " + getEmail() + '\'' +
+                " employeeId =" + employeeId + '\'' +
                 ", levelEducation ='" + levelEducation + '\'' +
                 ", position ='" + position + '\'' +
                 ", salary =" + salary +

@@ -98,7 +98,7 @@ public class ProductManager {
         }
     }
     public void searchByName(){
-        System.out.print("Input new product name: ");
+        System.out.print("Input product name: ");
         String name = sc.nextLine();
         boolean checkValid = checkValidName(name);
         if(checkValid == true){

@@ -10,4 +10,16 @@ public class Room extends Facility{
         super(serviceName, usableArea, cost, maximumMember, rentalType);
         this.freeServices = freeServices;
     }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "serviceName='" + getServiceName() + '\'' +
+                ", usableArea=" + getUsableArea() +'\'' +
+                ", cost=" + getCost() +'\'' +
+                ", maximumMember=" + getMaximumMember() +'\'' +
+                ", rentalType='" + getRentalType() + '\'' +
+                "freeServices='" + freeServices + '\'' +
+                '}';
+    }
 }

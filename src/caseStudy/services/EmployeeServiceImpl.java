@@ -3,19 +3,17 @@ package caseStudy.services;
 import caseStudy.models.Employee;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-
 
 public class EmployeeServiceImpl implements EmployeeService{
     Scanner sc = new Scanner(System.in);
     private static ArrayList<Employee> employeeList = new ArrayList<Employee>();
     static {
         employeeList.add(new Employee("Nguyen Van A", "2/2/2002", "Man",
-                "11223344", "0123456789", "employee1@gmail.com", 1,
+                "11223344", "0123456789", "employee1@gmail.com",
                 "Intern", "Finance", 1000));
         employeeList.add(new Employee("Nguyen Van B", "22/12/2002", "Man",
-                "11223344", "0123456789", "employee1@gmail.com", 2,
+                "11223344", "0123456789", "employee1@gmail.com",
                 "Intern", "Finance", 2000));
     }
 
@@ -30,11 +28,21 @@ public class EmployeeServiceImpl implements EmployeeService{
             }
         }
     }
+    public boolean checkValidDate(String day){
+        DateValidatorImpl validator = new DateValidatorImpl();
+        boolean check = validator.isValid(day);
+        return check;
+    }
     public Employee inputEmployeeInfo(){
         System.out.println("Input Name: ");
         String name = sc.nextLine();
-        System.out.println("Input Date Of Birth: ");
-        String birthDay = sc.nextLine();
+
+        String birthDay;
+        do {
+            System.out.println("Input Date Of Birth (\"dd/MM/yyyy\"): ");
+            birthDay = sc.nextLine();
+        }while (checkValidDate(birthDay) == false);
+
         System.out.println("Gender: ");
         String gender = sc.nextLine();
         System.out.println("Input id: ");
@@ -43,15 +51,13 @@ public class EmployeeServiceImpl implements EmployeeService{
         String phone =sc.nextLine();
         System.out.println("Input Email: ");
         String email = sc.nextLine();
-        System.out.println("Input Employee id: ");
-        int employeeId = Integer.parseInt(sc.nextLine());
-        System.out.println("Input Level: "); // lỗi dính liền
+        System.out.println("Input Level: ");
         String level = sc.nextLine();
         System.out.println("Input Position: ");
         String position = sc.nextLine();
         System.out.println("Input Salary :");
         double salary = sc.nextDouble();
-        return new Employee(name,birthDay,gender,id,phone,email,employeeId,level,position,salary);
+        return new Employee(name,birthDay,gender,id,phone,email,level,position,salary);
     }
     @Override
     public void add() {

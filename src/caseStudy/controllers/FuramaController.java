@@ -1,5 +1,6 @@
 package caseStudy.controllers;
 
+import caseStudy.services.CustomerServiceImpl;
 import caseStudy.services.EmployeeServiceImpl;
 
 import java.util.Scanner;
@@ -48,10 +49,30 @@ public class FuramaController {
                     }
                     break;
                 case 2 :
+                    CustomerServiceImpl customerService = new CustomerServiceImpl();
                     System.out.println("1 Display list customers");
                     System.out.println("2 Add new customer");
                     System.out.println("3 Edit customer");
                     System.out.println("4 Return main menu");
+                    choice = sc.nextInt();
+                    switch (choice){
+                        case 1:
+                            customerService.display();
+                            break;
+                        case 2:
+                            customerService.add();
+                            customerService.display();
+                            break;
+                        case 3:
+                            customerService.display();
+                            System.out.print("Input customer id: ");
+                            int employeeId = sc.nextInt();
+                            customerService.edit(employeeId);
+                            customerService.display();
+                            break;
+                        default:
+                            System.exit(0);
+                    }
                     break;
                 case 3 :
                     System.out.println("1 Display list facility");

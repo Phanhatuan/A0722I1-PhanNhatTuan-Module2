@@ -14,8 +14,6 @@ public class House extends Facility{
         this.floor = floor;
     }
 
-
-
     public String getRoomStandard() {
         return roomStandard;
     }
@@ -30,5 +28,18 @@ public class House extends Facility{
 
     public void setFloor(int floor) {
         this.floor = floor;
+    }
+
+    @Override
+    public String toString() {
+        return "House{" +
+                "serviceName='" + getServiceName() + '\'' +
+                ", usableArea=" + getUsableArea() + '\'' +
+                ", cost=" + getCost() + '\'' +
+                ", maximumMember=" + getMaximumMember() + '\'' +
+                ", rentalType='" + getRentalType() + '\'' +
+                "roomStandard='" + roomStandard + '\'' +
+                ", floor=" + floor +
+                '}';
     }
 }
