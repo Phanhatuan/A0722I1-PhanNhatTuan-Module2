@@ -130,21 +130,9 @@ public class FacilityServiceImpl implements FacilityService {
         } while (choice < 4);
     }
 
-    public void booking(){
-        System.out.println("Input name of service: ");
-        String name = sc.nextLine();
-            for(Map.Entry<Facility,Integer> item : facilityList.entrySet()){
-                if(item.getKey().getServiceName().equals(name)){
-                    int index = item.getValue();
-                    index++;
-                    //facilityList.replace(item,index);
-                }
-        }
-    }
     public static void main(String[] args) {
         FacilityServiceImpl a= new FacilityServiceImpl();
         a.display();
-        a.add();
-        a.display();
+
     }
 }
