@@ -1,9 +1,6 @@
 package ss12.Bai_tap;
 
-import caseStudy.models.Employee;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
 

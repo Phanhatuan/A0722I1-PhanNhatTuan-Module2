@@ -1,7 +1,5 @@
 package ss12.test;
 
-import caseStudy.models.Employee;
-
 public class EmployeeTest {
     private String birthday;
 
