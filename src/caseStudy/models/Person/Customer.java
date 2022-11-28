@@ -1,7 +1,5 @@
 package caseStudy.models.Person;
 
-import caseStudy.models.Person.Person;
-
 public class Customer extends Person {
     private static int idOrder = 0;
     private int customerId;
@@ -17,6 +15,14 @@ public class Customer extends Person {
         this.customerId = idOrder++;
         this.typeCustomer = typeCustomer;
         this.address = address;
+    }
+
+    public static int getIdOrder() {
+        return idOrder;
+    }
+
+    public static void setIdOrder(int idOrder) {
+        Customer.idOrder = idOrder;
     }
 
     public int getCustomerId() {
@@ -43,9 +49,13 @@ public class Customer extends Person {
         this.address = address;
     }
 
+    public String getInfo(){
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s\n",getCustomerId(),getName(),getBirthDay(),getGender(),getId(),getTel(),getEmail(),getTypeCustomer(),getAddress());
+    }
     @Override
     public String toString() {
         return "Customer{" +
+                "Customer ID = " + getCustomerId() + '\'' +
                 "name = " + getName() + '\'' +
                 " birthDay = " +getBirthDay() + '\'' +
                 " gender = " + getGender() + '\'' +

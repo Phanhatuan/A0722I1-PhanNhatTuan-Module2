@@ -2,25 +2,78 @@ package caseStudy.services.Implements;
 
 import caseStudy.models.Person.Employee;
 import caseStudy.services.Interfaces.EmployeeService;
+import ss17.Thuc_hanh.Student;
 
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class EmployeeServiceImpl implements EmployeeService {
     Scanner sc = new Scanner(System.in);
-    private static ArrayList<Employee> employeeList = new ArrayList<Employee>();
-    static {
-        employeeList.add(new Employee("Nguyen Van A", "2/2/2002", "Man",
-                "11223344", "0123456789", "employee1@gmail.com",
-                "Intern", "Finance", 1000));
-        employeeList.add(new Employee("Nguyen Van B", "22/12/2002", "Man",
-                "11223344", "0123456789", "employee1@gmail.com",
-                "Intern", "Finance", 2000));
-    }
+    // Employee list
+    private static ArrayList<Employee> employeeList = new ArrayList<>();
+    //File employee csv
+    private static final String FILE_EMPLOYEE_PATH = "D:\\CodeGym\\Module_2\\src\\caseStudy\\data\\employee.csv";
 
+    //Begin Write read file section
+    public void writeEmployeeCSV()  {
+       String data = "";
+       for(Employee employee: employeeList){
+           data += employee.getInfo();
+       }
+        try {
+            writeFile(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void writeFile(String data) throws IOException {
+        FileWriter fileWriter = new FileWriter(FILE_EMPLOYEE_PATH);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        bufferedWriter.write(data);
+        bufferedWriter.close();
+    }
+    public ArrayList<Employee> readFile() {
+        ArrayList<Employee> employeeList1 = new ArrayList<>();
+        Employee.setIdOrder(0); // Reset IdOder !important
+        FileReader fileReader = null;
+        try {
+            fileReader = new FileReader(FILE_EMPLOYEE_PATH);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        String line = null;
+        String temp[];
+        Employee employee;
+        while(true){
+            try {
+                if (!((line = bufferedReader.readLine())!=null)) break;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            temp = line.split(",");
+            String name = temp[0];
+            String birthDay = temp[1];
+            String gender= temp[2];
+            String id= temp[3];
+            String tel= temp[4];
+            String email= temp[5];
+            String levelEducation= temp[6];
+            String position= temp[7];
+            double salary = Double.parseDouble(temp[8]);
+            employee = new Employee(name,birthDay,gender,id,tel,email,levelEducation,position,salary);
+            employeeList1.add(employee);
+        }
+         return employeeList1;
+    }
+    // End Write read file section
+
+    // Begin CRUD section
     @Override
     public void display() {
+        employeeList = readFile();
         if(employeeList.size()==0){
             System.out.println("The list is empty");
         }
@@ -30,12 +83,44 @@ public class EmployeeServiceImpl implements EmployeeService {
             }
         }
     }
-    public boolean checkValidDate(String day){
-        DateValidatorImpl validator = new DateValidatorImpl();
-        boolean check = validator.isValid(day);
-        return check;
+    @Override
+    public void add() {
+        Employee temp = null;
+        try {
+            temp = inputEmployeeInfo();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        employeeList = readFile();
+        employeeList.add(temp);
+        writeEmployeeCSV();
+        System.out.println("File employee CSV updated new employee");
     }
+    @Override
+    public void edit(int employeeId) {
+        boolean found = false;
+        employeeList = readFile();
+        for (int i = 0; i < employeeList.size(); i++) {
+            if(employeeId == employeeList.get(i).getEmployeeId()){
+                Employee temp = null;
+                try {
+                    temp = inputEmployeeInfo();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                employeeList.remove(i);
+                employeeList.add(i,temp);
+                found = true;
+                writeEmployeeCSV();
+            }
+        }
+        if (found == false){
+            System.out.println("Not found");
+        }
+    }
+    // End CRUD section
 
+    // Begin Validation section
     public boolean checkValidBirthDay(String day)  {
         boolean check = true;
         Date date = null;
@@ -51,6 +136,14 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
         return check;
     }
+    public boolean checkValidDate(String day){
+        DateValidatorImpl validator = new DateValidatorImpl();
+        boolean check = validator.isValid(day);
+        return check;
+    }
+    // End Validation section
+
+    // Begin Input employee info section
     public Employee inputEmployeeInfo() throws ParseException {
         System.out.println("Input Name: ");
         String name = sc.nextLine();
@@ -78,44 +171,5 @@ public class EmployeeServiceImpl implements EmployeeService {
         double salary = sc.nextDouble();
         return new Employee(name,birthDay,gender,id,phone,email,level,position,salary);
     }
-    @Override
-    public void add() {
-        Employee temp = null;
-        try {
-            temp = inputEmployeeInfo();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        employeeList.add(temp);
-    }
-
-    @Override
-    public void edit(int employeeId) {
-        boolean found = false;
-        for (int i = 0; i < employeeList.size(); i++) {
-            if(employeeId==employeeList.get(i).getEmployeeId()){
-                Employee temp = null;
-                try {
-                    temp = inputEmployeeInfo();
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                employeeList.remove(i);
-                employeeList.add(i,temp);
-                found = true;
-            }
-        }
-        if (found == false){
-            System.out.println("Not found");
-        }
-    }
-
-    public static void main(String[] args) {
-        EmployeeServiceImpl n = new EmployeeServiceImpl();
-        n.add();
-        n.display();
-        //n.edit(1);
-        //n.display();
-
-    }
+    // End Input employee info section
 }

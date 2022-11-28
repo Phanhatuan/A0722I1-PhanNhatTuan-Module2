@@ -21,6 +21,14 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
+    public static int getIdOrder() {
+        return idOrder;
+    }
+
+    public static void setIdOrder(int idOrder) {
+        Employee.idOrder = idOrder;
+    }
+
     public int getEmployeeId() {
         return employeeId;
     }
@@ -53,9 +61,13 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
+    public String getInfo(){
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s\n",getName(),getBirthDay(),getGender(),getId(),getTel(),getEmail(),getLevelEducation(),getPosition(),getSalary());
+    }
     @Override
     public String toString() {
         return "Employee{" +
+                "Employee ID = " + getEmployeeId() + '\'' +
                 "name = " + getName() + '\'' +
                 " birthDay = " +getBirthDay() + '\'' +
                 " gender = " + getGender() + '\'' +
