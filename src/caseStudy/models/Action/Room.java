@@ -13,6 +13,17 @@ public class Room extends Facility {
         this.freeServices = freeServices;
     }
 
+    public String getFreeServices() {
+        return freeServices;
+    }
+
+    public void setFreeServices(String freeServices) {
+        this.freeServices = freeServices;
+    }
+
+    public String getInfo(){
+        return String.format("%s,%s,%s,%s,%s,%s,%s\n",getServiceName(),getUsableArea(),getCost(),getMaximumMember(),getRentalType(),getServiceId(),getFreeServices());
+    }
     @Override
     public String toString() {
         return "Room{" +

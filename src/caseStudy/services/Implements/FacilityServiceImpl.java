@@ -7,19 +7,81 @@ import caseStudy.models.Action.Villa;
 import caseStudy.services.Const.FacilityConst;
 import caseStudy.services.Interfaces.FacilityService;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class FacilityServiceImpl implements FacilityService, FacilityConst {
     Scanner sc = new Scanner(System.in);
+    // File villa path
+    private static final String FILE_VILLA_PATH = "D:\\CodeGym\\Module_2\\src\\caseStudy\\data\\villa.csv";
+    // File room path
+    private static final String FILE_ROOM_PATH = "D:\\CodeGym\\Module_2\\src\\caseStudy\\data\\room.csv";
+    // File house path
+    private static final String FILE_HOUSE_PATH = "D:\\CodeGym\\Module_2\\src\\caseStudy\\data\\house.csv";
     private static LinkedHashMap<Facility,Integer> facilityList = new LinkedHashMap<>();
-
     static {
         facilityList.put(new Villa("Villa", 1000,1000, 4,"Diamond","SVVL-1000", "Vip",1000,10),0);
         facilityList.put(new House("House", 1000,1000, 4,"Diamond", "SVHO-1000", "Vip",10),0);
+        facilityList.put(new Room("Room", 1000,1000, 4,"Diamond", "SVRO-1000", "None"),0);
+    }
+    // Begin write read file section
+    public void writeVillaCSV()  {
+        String data = "";
+        for (Facility key : facilityList.keySet()) {
+            String temp = key.getClass().getSimpleName();
+            if(temp.equals("Villa")){
+                Villa tempVilla = (Villa) key;
+                data += tempVilla.getInfo();
+            }
+        }
+        try {
+            writeFile(FILE_VILLA_PATH,data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    public void writeHouseCSV()  {
+        String data = "";
+        for (Facility key : facilityList.keySet()) {
+            String temp = key.getClass().getSimpleName();
+            if(temp.equals("House")){
+                House tempVilla = (House) key;
+                data += tempVilla.getInfo();
+            }
+        }
+        try {
+            writeFile(FILE_HOUSE_PATH,data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void writeRoomCSV()  {
+        String data = "";
+        for (Facility key : facilityList.keySet()) {
+            String temp = key.getClass().getSimpleName();
+            if(temp.equals("Room")){
+                Room tempVilla = (Room) key;
+                data += tempVilla.getInfo();
+            }
+        }
+        try {
+            writeFile(FILE_ROOM_PATH,data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void writeFile(String path,String data) throws IOException {
+        FileWriter fileWriter = new FileWriter(path);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        bufferedWriter.write(data);
+        bufferedWriter.close();
+    }
+    // Begin Add new facility
     @Override
     //Display the collection
     public void display() {
@@ -295,8 +357,8 @@ public class FacilityServiceImpl implements FacilityService, FacilityConst {
     }
 
     public static void main(String[] args) {
-        FacilityServiceImpl a= new FacilityServiceImpl();
-        //a.displayFacilityNeedRepair();
-        a.add();
+        FacilityServiceImpl a = new FacilityServiceImpl();
+        a.writeRoomCSV();
+        a.writeRoomCSV();
     }
 }
