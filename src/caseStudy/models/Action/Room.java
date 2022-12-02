@@ -20,19 +20,20 @@ public class Room extends Facility {
     public void setFreeServices(String freeServices) {
         this.freeServices = freeServices;
     }
-
+    @Override
     public String getInfo(){
-        return String.format("%s,%s,%s,%s,%s,%s,%s\n",getServiceName(),getUsableArea(),getCost(),getMaximumMember(),getRentalType(),getServiceId(),getFreeServices());
+        return String.format("%s,%s,%s,%s,%s,%s,%s",getServiceName(),getUsableArea(),getCost(),getMaximumMember(),getRentalType(),getServiceId(),getFreeServices());
     }
     @Override
     public String toString() {
         return "Room{" +
-                "serviceName='" + getServiceName() + '\'' +
-                ", usableArea=" + getUsableArea() +'\'' +
-                ", cost=" + getCost() +'\'' +
-                ", maximumMember=" + getMaximumMember() +'\'' +
-                ", rentalType='" + getRentalType() + '\'' +
-                "freeServices='" + freeServices + '\'' +
+                "serviceName= " + getServiceName() +
+                ", usableArea= " + getUsableArea() +
+                ", cost= " + getCost() +
+                ", maximumMember= " + getMaximumMember() +
+                ", rentalType= " + getRentalType() +
+                ", serviceId= " + getServiceId() +
+                ", freeServices= " + getServiceName() +
                 '}';
     }
 }

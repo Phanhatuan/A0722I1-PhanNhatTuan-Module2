@@ -1,7 +1,5 @@
 package caseStudy.models.Action;
 
-import caseStudy.models.Action.Facility;
-
 public class Villa extends Facility {
     private String roomStandard;
     private double poolArea;
@@ -41,20 +39,23 @@ public class Villa extends Facility {
     public void setFloor(int floor) {
         this.floor = floor;
     }
+
+    @Override
     public String getInfo(){
-        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s\n",getServiceName(),getUsableArea(),getCost(),getMaximumMember(),getRentalType(),getServiceId(),getRoomStandard(),getPoolArea(),getFloor());
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s",getServiceName(),getUsableArea(),getCost(),getMaximumMember(),getRentalType(),getServiceId(),getRoomStandard(),getPoolArea(),getFloor());
     }
     @Override
     public String toString() {
         return "Villa{" +
-                "serviceName='" + getServiceName() + '\'' +
-                ", usableArea=" + getUsableArea() + '\'' +
-                ", cost=" + getCost() + '\'' +
-                ", maximumMember=" + getMaximumMember() + '\'' +
-                ", rentalType='" + getRentalType() + '\'' +
-                "roomStandard='" + roomStandard + '\'' +
-                ", poolArea=" + poolArea +
-                ", floor=" + floor +
+                "serviceName= " + getServiceName() +
+                ", usableArea= " + getUsableArea() +
+                ", cost= " + getCost() +
+                ", maximumMember= " + getMaximumMember() +
+                ", rentalType= " + getRentalType() +
+                ", roomStandard= " + getRoomStandard() +
+                ", serviceId= " + getServiceId() +
+                ", poolArea= " + getPoolArea() +
+                ", floor= " + getFloor() +
                 '}';
     }
 }

@@ -67,17 +67,16 @@ public class Employee extends Person {
     @Override
     public String toString() {
         return "Employee{" +
-                "Employee ID = " + getEmployeeId() + '\'' +
-                "name = " + getName() + '\'' +
-                " birthDay = " +getBirthDay() + '\'' +
-                " gender = " + getGender() + '\'' +
-                " id = " + getId() + '\'' +
-                " tel = " + getTel() + '\'' +
-                " email = " + getEmail() + '\'' +
-                " employeeId =" + employeeId + '\'' +
-                ", levelEducation ='" + levelEducation + '\'' +
-                ", position ='" + position + '\'' +
-                ", salary =" + salary +
+                "Employee ID = " + getEmployeeId() +
+                "name = " + getName() +
+                ", birthDay = " +getBirthDay() +
+                ", gender = " + getGender() +
+                ", id = " + getId() +
+                ", tel = " + getTel() +
+                ", email = " + getEmail() +
+                ", levelEducation = " + getLevelEducation() +
+                ", position = " + getPosition() +
+                ", salary = " + getSalary() +
                 '}';
     }
 }

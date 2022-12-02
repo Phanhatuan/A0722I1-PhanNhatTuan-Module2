@@ -55,16 +55,15 @@ public class Customer extends Person {
     @Override
     public String toString() {
         return "Customer{" +
-                "Customer ID = " + getCustomerId() + '\'' +
-                "name = " + getName() + '\'' +
-                " birthDay = " +getBirthDay() + '\'' +
-                " gender = " + getGender() + '\'' +
-                " id = " + getId() + '\'' +
-                " tel = " + getTel() + '\'' +
-                " email = " + getEmail() + '\'' +
-                "customerId= " + customerId + '\'' +
-                ", typeCustomer= '" + typeCustomer + '\'' +
-                ", address= '" + address + '\'' +
+                "Customer ID = " + getCustomerId() +
+                ", name = " + getName() +
+                ", birthDay = " +getBirthDay() +
+                ", gender = " + getGender() +
+                ", id = " + getId() +
+                ", tel = " + getTel() +
+                ", email = " + getEmail() +
+                ", typeCustomer= " + getTypeCustomer() +
+                ", address= " + getAddress() +
                 '}';
     }
 }

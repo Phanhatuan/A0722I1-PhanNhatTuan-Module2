@@ -31,19 +31,21 @@ public class House extends Facility {
     public void setFloor(int floor) {
         this.floor = floor;
     }
+    @Override
     public String getInfo(){
-        return String.format("%s,%s,%s,%s,%s,%s,%s,%s\n",getServiceName(),getUsableArea(),getCost(),getMaximumMember(),getRentalType(),getServiceId(),getRoomStandard(),getFloor());
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s",getServiceName(),getUsableArea(),getCost(),getMaximumMember(),getRentalType(),getServiceId(),getRoomStandard(),getFloor());
     }
     @Override
     public String toString() {
         return "House{" +
-                "serviceName='" + getServiceName() + '\'' +
-                ", usableArea=" + getUsableArea() + '\'' +
-                ", cost=" + getCost() + '\'' +
-                ", maximumMember=" + getMaximumMember() + '\'' +
-                ", rentalType='" + getRentalType() + '\'' +
-                "roomStandard='" + roomStandard + '\'' +
-                ", floor=" + floor +
+                "serviceName= " + getServiceName() +
+                ", usableArea= " + getUsableArea() +
+                ", cost= " + getCost() +
+                ", maximumMember= " + getMaximumMember() +
+                ", rentalType= " + getRentalType() +
+                ", serviceId= " + getServiceId() +
+                "roomStandard= " + getRoomStandard() +
+                ", floor= " + getFloor() +
                 '}';
     }
 }

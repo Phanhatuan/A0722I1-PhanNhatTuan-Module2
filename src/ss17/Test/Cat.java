@@ -1,14 +1,14 @@
 package ss17.Test;
 
-public class Cat implements Animals{
+public interface Cat extends Animals {
 
     @Override
-    public void doSth() {
+    default void doSth1() {
 
     }
 
-    @Override
-    public void keu() {
+    default void keu1() {
 
     }
+
 }
