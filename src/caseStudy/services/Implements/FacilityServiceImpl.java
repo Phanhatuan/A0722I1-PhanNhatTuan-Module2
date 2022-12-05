@@ -65,6 +65,6 @@ public class FacilityServiceImpl implements FacilityService, FacilityConst {
         for(Map.Entry<Facility,Integer> item : facilityList.entrySet()){
             System.out.printf("%s - %s",item.getKey(),item.getValue());
             System.out.println();
-        }}
-
+        }
+    }
 }

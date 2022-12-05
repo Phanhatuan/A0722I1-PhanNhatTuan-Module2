@@ -3,9 +3,10 @@ package caseStudy.models.Action;
 import java.time.LocalDate;
 
 public class Booking {
+    private static int idOrder = 0;
     private int bookingId;
-    private LocalDate beginDay;
-    private LocalDate  endDay;
+    private String beginDay;
+    private String endDay;
     private int customerId;
     private String serviceName;
     private String typeService;
@@ -13,8 +14,8 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking(int bookingId, LocalDate  beginDay, LocalDate  endDay, int customerId, String serviceName, String typeService) {
-        this.bookingId = bookingId;
+    public Booking( String  beginDay, String  endDay, int customerId, String serviceName, String typeService) {
+        bookingId = idOrder++;
         this.beginDay = beginDay;
         this.endDay = endDay;
         this.customerId = customerId;
@@ -30,19 +31,27 @@ public class Booking {
         this.bookingId = bookingId;
     }
 
-    public LocalDate  getBeginDay() {
+    public static int getIdOrder() {
+        return idOrder;
+    }
+
+    public static void setIdOrder(int idOrder) {
+        Booking.idOrder = idOrder;
+    }
+
+    public String getBeginDay() {
         return beginDay;
     }
 
-    public void setBeginDay(LocalDate  beginDay) {
+    public void setBeginDay(String beginDay) {
         this.beginDay = beginDay;
     }
 
-    public LocalDate  getEndDay() {
+    public String getEndDay() {
         return endDay;
     }
 
-    public void setEndDay(LocalDate  endDay) {
+    public void setEndDay(String endDay) {
         this.endDay = endDay;
     }
 
@@ -68,5 +77,17 @@ public class Booking {
 
     public void setTypeService(String typeService) {
         this.typeService = typeService;
+    }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "bookingId= " + getBookingId() +
+                ", beginDay= " + getBeginDay() +
+                ", endDay= " + getEndDay() +
+                ", customerId= " + getCustomerId() +
+                ", serviceName= " + getServiceName() +
+                ", typeService= " + getTypeService() +
+                '}';
     }
 }
