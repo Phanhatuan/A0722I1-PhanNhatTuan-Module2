@@ -103,6 +103,11 @@ public class FacilityReadAndWriteFileCSV {
             villa = new Villa(serviceName,usableArea,cost,maximumMember,rentalType,serviceId,roomStandard,poolArea,floor);
             facilityVillaList.put(villa,numberOfUses);
         }
+        try {
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return facilityVillaList;
     }
     public static LinkedHashMap<Facility,Integer> readRoomFile() {

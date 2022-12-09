@@ -1,17 +1,15 @@
-package caseStudy.utils;
+package On_tap.utils;
 
-import caseStudy.models.Person.Employee;
+import On_tap.model.Employee;
+import caseStudy.models.Person.Customer;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeReadAndWriteFileCSV {
-    //File employee csv
-    private static final String FILE_EMPLOYEE_PATH = "D:\\CodeGym\\Module_2\\src\\caseStudy\\data\\employee.csv";
-
-    // Begin Write read file section
-    public static void writeEmployeeCSV(List<Employee> list)  {
+public class EmployeeReadAndWrite {
+    private static final String FILE_EMPLOYEE_PATH = "D:\\CodeGym\\Module_2\\src\\On_tap\\data\\employee.csv";
+    public static void writeEmployeeCSV(List<Employee> list){
         String data = "";
         for(Employee employee: list){
             data += employee.getInfo();
@@ -29,8 +27,8 @@ public class EmployeeReadAndWriteFileCSV {
         bufferedWriter.close();
     }
     public static ArrayList<Employee> readFile() {
-        ArrayList<Employee> employeeList1 = new ArrayList<>();
-        Employee.setIdOrder(0); // Reset IdOder !important
+        ArrayList<Employee> employees = new ArrayList<>();
+        Customer.setIdOrder(0);
         FileReader fileReader = null;
         try {
             fileReader = new FileReader(FILE_EMPLOYEE_PATH);
@@ -49,23 +47,16 @@ public class EmployeeReadAndWriteFileCSV {
             }
             temp = line.split(",");
             String name = temp[0];
-            String birthDay = temp[1];
-            String gender= temp[2];
-            String id= temp[3];
-            String tel= temp[4];
-            String email= temp[5];
-            String levelEducation= temp[6];
-            String position= temp[7];
-            double salary = Double.parseDouble(temp[8]);
-            employee = new Employee(name,birthDay,gender,id,tel,email,levelEducation,position,salary);
-            employeeList1.add(employee);
+            int age = Integer.parseInt(temp[1]);
+            String type = temp[2];
+            employee = new Employee(name,age,type);
+            employees.add(employee);
         }
         try {
             bufferedReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return employeeList1;
+        return employees;
     }
-    // End Write read file section
 }

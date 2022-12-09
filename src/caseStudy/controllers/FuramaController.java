@@ -1,12 +1,13 @@
 package caseStudy.controllers;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class FuramaController {
     static Scanner sc = new Scanner(System.in);
 
     public static void mainMenu(){
-        int number;
+        int number = -1;
         do {
             System.out.println("1.Employee Management\n" +
                     "2.Customer Management\n" +
@@ -15,7 +16,11 @@ public class FuramaController {
                     "5.Promotion Management\n" +
                     "6.Exit");
             System.out.print("Please input number you want: ");
-            number = sc.nextInt();
+            try {
+                number = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException  e){
+                System.out.println("Nhap lai");
+            }
             switch (number) {
                 case 1:
                     EmployeeController.processEmployeeController();

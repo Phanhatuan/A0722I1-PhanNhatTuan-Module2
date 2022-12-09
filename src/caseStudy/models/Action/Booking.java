@@ -79,6 +79,9 @@ public class Booking {
         this.typeService = typeService;
     }
 
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s,\n", getBeginDay(), getEndDay(), getCustomerId(), getServiceName(), getTypeService());
+    }
     @Override
     public String toString() {
         return "Booking{" +
